@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Задание 3</title>
+<style>
+#sqr{
+width: 420px; 
+height: 420px; 
+position: relative;
+border-style: solid;
+border-width: 1px;
+}
+#sqr01{
+width: 100px; 
+height: 100px; 
+background: white; 
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr02{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr03
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr04
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr05
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr06
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr07
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr08
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr09
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr10
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr11
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr12
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr13
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr14
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr15
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+#sqr16
+{
+width: 100px;
+height: 100px;
+background: white;
+display: inline-block;
+border-style: solid;
+border-width: 1px;
+}
+</style>
+	</head>
+    <body>
+<div id="sqr">
+	<div id="sqr01" class="elements"></div>   
+	<div id="sqr02" class="elements"></div>
+	<div id="sqr03" class="elements"></div>
+	<div id="sqr04" class="elements"></div> 
+	<div id="sqr05" class="elements"></div> 
+	<div id="sqr06" class="elements"></div> 
+	<div id="sqr07" class="elements"></div> 
+	<div id="sqr08" class="elements"></div> 
+	<div id="sqr09" class="elements"></div> 
+	<div id="sqr10" class="elements"></div> 
+	<div id="sqr11" class="elements"></div> 
+	<div id="sqr12" class="elements"></div> 
+	<div id="sqr13" class="elements"></div> 
+	<div id="sqr14" class="elements"></div> 
+	<div id="sqr15" class="elements"></div> 
+	<div id="sqr16" class="elements"></div> 
+</div>
+</br>
+<button onclick="func()">Старт</button>
+
+<div id="timer" size=10>00:00.00</div>
+
+<script>
+  function func() 
+{
+	var timer = document.getElementById("timer");
+	var time = new Date(0,0,0,0,0,0,0);
+	var m = time.getMinutes();
+	var s = time.getSeconds();
+	var ms = time.getMilliseconds();
+	function timeFlies()
+		{	
+		if(ms==100)
+			{s++;
+			ms=0;
+			}
+		if(s==60)
+			{
+			m++;
+			s=0;
+			}
+		ms++;
+
+		}
+
+	var t1 = setInterval(timeFlies, 10);
+	function printTime()
+		{	
+		var mm = m<10?0+""+m:m;
+		var ss = s<10?0+""+s:s;
+		var mms = 0;
+		if(ms<10)
+			{
+			mms = 0+""+ms;
+			}
+		else
+			{
+			mms = ms;
+			}
+
+			
+		timer.innerHTML = mm+":"+ss+"."+mms;
+		}
+	var t2 = setInterval(printTime, 10);
+	var objs = document.getElementsByClassName("elements");
+	var inds = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0];
+	var half_objs1 = [];
+	var half_objs2 = [];
+	for(let i =0; i<8; i++)
+		{
+		let k = Math.floor(Math.random()*inds.length);
+		half_objs1[i] = objs[inds[k]];
+		inds.splice(k, 1);
+		}
+	for(let i =0; i<8; i++)
+		{
+		let v = Math.floor(Math.random()*inds.length);
+		half_objs2[i] = objs[inds[v]];
+		inds.splice(v, 1);
+		}
+	var c = [];
+	function get_random_color() 
+		{
+		var letters = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
+		var color = "";
+		for (let i = 0; i < 6; i++ ) 
+			{
+			color += letters[Math.round(Math.random() * 15)];
+			}
+		return color;
+		}
+	for(let i=0;i<16;i++)
+		{
+		var col = get_random_color();
+		c[i] = col;
+		}
+	var objs_col = document.createElement("bgcolor");
+	for(let i =0;i<half_objs1.length;i++)
+	{
+	half_objs1[i].appendChild(objs_col);
+	}
+	for(let i =0;i<half_objs2.length;i++)
+	{
+	half_objs2[i].appendChild(objs_col);
+	}
+	
+	for(let i = 0; i<half_objs1.length;i++)
+		{
+		half_objs1[i].objs_col = half_objs2[i].objs_col = "#"+c[i];
+		}
+}
+f   unction click()
+{
+	half_objs1[0].style.background = half_objs1[0].objs_col;
+	for(let i=0;i<objs.length;i++)
+		{
+		
+		}
+
+
+	
+}
+
+</script>   
+
+    </body>
+
+</html>
